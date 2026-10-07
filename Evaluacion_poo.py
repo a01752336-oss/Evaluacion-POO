@@ -61,6 +61,15 @@ departamento = Alojamiento(
 
 # Completa las instrucciones necesarias para:
 # 1. Mostrar la información de la casa.
+print(casa.mostrar_info())
+
 # 2. Mostrar el precio por persona de la casa.
+print(f"Precio por persona: ${casa.precio_por_persona()}")
+
+print("--------------------")
+
 # 3. Mostrar la información del departamento.
+print(departamento.mostrar_info())
+
 # 4. Mostrar el precio por persona del departamento.
+print(f"Precio por persona: ${departamento.precio_por_persona()}")
