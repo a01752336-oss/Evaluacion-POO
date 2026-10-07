@@ -25,8 +25,14 @@ class Alojamiento:
     # El precio debe verse como moneda y la capacidad como número de personas.
 
     def precio_por_persona(self):
-        # COMPLETAR
-        pass
+        # si el precio o la capacidad son 0 o negativos no se puede calcular
+        # entonces regresamos None para que no marque error
+        if self.precio <= 0 or self.capacidad <= 0:
+            return None
+
+        # dividimos el precio entre las personas y redondeamos a 2 decimales
+        resultado = round(self.precio / self.capacidad, 2)
+        return resultado
 
     # 2. precio_por_persona()
 
