@@ -1,14 +1,21 @@
 class Alojamiento:
 
     def __init__(self, nombre, tipo, precio, capacidad):
+        # guardamos los datos que recibe el alojamiento
         self.nombre = nombre
         self.tipo = tipo
         self.precio = precio
         self.capacidad = capacidad
 
     def mostrar_info(self):
-        # COMPLETAR
-        pass
+        # armamos el texto con los datos del alojamiento
+        # el precio va con $ y 2 decimales para que se vea como dinero
+        info = f"Nombre: {self.nombre}\n"
+        info = info + f"Tipo: {self.tipo}\n"
+        info = info + f"Precio: ${self.precio:.2f}\n"
+        info = info + f"Capacidad: {self.capacidad} personas"
+        # regresamos el texto (no lo imprimimos aqui)
+        return info
 
     # Reglas (léelas con atención, no son solo "rellenar")
     # 1. mostrar_info()
@@ -18,13 +25,19 @@ class Alojamiento:
     # El precio debe verse como moneda y la capacidad como número de personas.
 
     def precio_por_persona(self):
-        # COMPLETAR
-        pass
+        # si el precio o la capacidad son 0 o negativos no se puede calcular
+        # entonces regresamos None para que no marque error
+        if self.precio <= 0 or self.capacidad <= 0:
+            return None
+
+        # dividimos el precio entre las personas y redondeamos a 2 decimales
+        resultado = round(self.precio / self.capacidad, 2)
+        return resultado
 
     # 2. precio_por_persona()
 
     # Debe devolver el precio que corresponde pagar por persona.
-    # Si precio o capacidad no son válidos (capacidad o precio <= 0), 
+    # Si precio o capacidad no son válidos (capacidad o precio <= 0),
     # no debe lanzar error: debe devolver None.
     # El resultado debe estar redondeado a 2 decimales.
 
@@ -48,6 +61,15 @@ departamento = Alojamiento(
 
 # Completa las instrucciones necesarias para:
 # 1. Mostrar la información de la casa.
+print(casa.mostrar_info())
+
 # 2. Mostrar el precio por persona de la casa.
+print(f"Precio por persona: ${casa.precio_por_persona()}")
+
+print("--------------------")
+
 # 3. Mostrar la información del departamento.
+print(departamento.mostrar_info())
+
 # 4. Mostrar el precio por persona del departamento.
+print(f"Precio por persona: ${departamento.precio_por_persona()}")
