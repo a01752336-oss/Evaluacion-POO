@@ -1,14 +1,21 @@
 class Alojamiento:
 
     def __init__(self, nombre, tipo, precio, capacidad):
+        # guardamos los datos que recibe el alojamiento
         self.nombre = nombre
         self.tipo = tipo
         self.precio = precio
         self.capacidad = capacidad
 
     def mostrar_info(self):
-        # COMPLETAR
-        pass
+        # armamos el texto con los datos del alojamiento
+        # el precio va con $ y 2 decimales para que se vea como dinero
+        info = f"Nombre: {self.nombre}\n"
+        info = info + f"Tipo: {self.tipo}\n"
+        info = info + f"Precio: ${self.precio:.2f}\n"
+        info = info + f"Capacidad: {self.capacidad} personas"
+        # regresamos el texto (no lo imprimimos aqui)
+        return info
 
     # Reglas (léelas con atención, no son solo "rellenar")
     # 1. mostrar_info()
@@ -24,7 +31,7 @@ class Alojamiento:
     # 2. precio_por_persona()
 
     # Debe devolver el precio que corresponde pagar por persona.
-    # Si precio o capacidad no son válidos (capacidad o precio <= 0), 
+    # Si precio o capacidad no son válidos (capacidad o precio <= 0),
     # no debe lanzar error: debe devolver None.
     # El resultado debe estar redondeado a 2 decimales.
 
